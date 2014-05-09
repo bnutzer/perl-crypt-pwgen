@@ -1,0 +1,48 @@
+Crypt::PwGen
+==================
+
+A perl interface for pwgen, a password generator by Theodore Ts'o
+<tytso@alum.mit.edu>.
+
+As pwgen itself does not come as a library, a slightly modified source
+package is required; feel free to fetch it from github:
+https://github.com/bnutzer/pwgen
+
+See the perl documentation (perldoc Crypt::PwGen) for more information
+and usage.
+
+
+Installation
+============
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make install
+
+
+Bugs
+====
+
+pwgen is an executable program; linking its object files to an .so file
+does not make it a good shared library. Especially, it relies on a
+global variable.
+
+When modifying the lib's behavior through the pwgen_XX functions, you
+may experience all kinds of weird and undesirable behavior, including
+segfaults or insecure passwords.
+
+
+Copyright and licence
+=====================
+
+Copyright (C) 2014 Bastian Friedrich <bastian@friedrich.link
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.8 or,
+at your option, any later version of Perl 5 you may have available.
+
+pwgen itself is GPL2 or later.
+
+The package contains the perl module Devel::CheckLib. Its
+copyright belongs to the respective authors.

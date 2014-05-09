@@ -1,0 +1,13 @@
+MANIFEST			This list of files
+README				Readme
+ChangeLog			Change log
+Makefile.PL			MakeMaker make file
+lib/Crypt/PwGen.pm		Perl interface to the package
+PwGen.xs			Perl extension
+inc/Devel/CheckLib.pm		Devel::CheckLib as available from CPAN
+t/00-load.t			Module load test
+t/01-some-passwords.t		Test: Get a number of passwords
+t/02-non-default-props.t	Test: Modify lib behavior
+t/03-non-default-flags.t	Test: Modify password flags
+t/04-flagsToStr.t		Test: Does flagsToStr work
+t/05-noflags.t			Test: Does pwgen work properly when no flags are passed
