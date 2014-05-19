@@ -4,6 +4,7 @@ ChangeLog			Change log
 Makefile.PL			MakeMaker make file
 lib/Crypt/PwGen.pm		Perl interface to the package
 PwGen.xs			Perl extension
+pw_number.h			Global "pw_number" variable for Devel::CheckLib make test
 inc/Devel/CheckLib.pm		Devel::CheckLib as available from CPAN
 t/00-load.t			Module load test
 t/01-some-passwords.t		Test: Get a number of passwords
