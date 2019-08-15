@@ -58,20 +58,22 @@ pwgen_sha1_number(sha1)
 	pw_number = pw_sha1_number;
 
 SV *
-pwgen(len, flags = PW_DIGITS | PW_UPPERS)
+pwgen(len, flags = PW_DIGITS | PW_UPPERS, remove = "")
         int len
         int flags
+	char *remove
     PREINIT:
 	dMY_CXT;
 	char *buf;
-	SV *ret;
-	void (*pwgen)(char *inbuf, int size, int pw_flags);
+	void (*pwgen)(char *inbuf, int size, int pw_flags, char *remove);
     CODE:
 	if (len < 1) {
 		Perl_croak(aTHX_ "len must be positive");
 	} else if (len > 1023) {
 		Perl_croak(aTHX_ "maximum len of 1023 exceeded");
 	}
+
+	printf("Remove is %s\n", remove);
 
 	if (MY_CXT.gen == 1) {
 		pwgen = pw_phonemes;
@@ -81,7 +83,7 @@ pwgen(len, flags = PW_DIGITS | PW_UPPERS)
 
 	buf = (char *)malloc(len + 1);
 
-	pwgen(buf, len, flags);
+	pwgen(buf, len, flags, remove);
 
 	RETVAL = newSVpv(buf, 0);
 

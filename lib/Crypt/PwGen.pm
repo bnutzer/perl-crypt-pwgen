@@ -68,7 +68,7 @@ in a threading environment is not advisable.
 
 =head1 Exports
 
-Function C<pwgen($length [, $flags])>
+Function C<pwgen($length [, $flags [, $remove]])>
 
 Exportable Tags:
 
@@ -125,13 +125,18 @@ C<pw_sha1_number(sha1)>
 
 =head1 Function description
 
-=head2 Function C<pwgen($len [, $flags])>
+=head2 Function C<pwgen($len [, $flags [, $remove]])>
 
 The main, most important and quite possibly only used function in this module.
 Returns a newly generated password.
 
 The C<$len> argument must be a positive number between 1 and 1023. When the
 optional C<$flags> argument is omitted, it defaults to PW_DIGITS | PW_UPPERS.
+
+In the "random characters" mode (after calling C<pwgen_rand()>), a string
+containing characters to be removed from the output may be passed in the
+C<$remove> argument. Please note that this argument is ignored in the default
+"phonemes" mode.
 
 =head2 Function C<pwgen_phonemes()>
 
